@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+      <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>Locação de Bigas</title>
+                <link href="bootstrap.min.css" rel="stylesheet"></link>
+            </f:facet>
+        </h:head>
+        <h:body>
+            <p:layout fullPage="true" style="border-color: white;">
+                <p:layoutUnit position="north" size="50" collapsible="true">
+                    <div class="navbar navbar-fixed-top" id="barnav">
+					<div class="navbar-inner">
+						<div class="container"> 
+							<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</a>
+							<a class="brand" href="sobre.xhtml">
+								
+								Locaetec
+							</a>
+
+						<div class="nav-collapse collapse">
+							<ul class="nav">
+								<li>
+									<a href="marca.xhtml">Marca</a>
+								</li>
+								<li>
+									<a href="modelo.xhtml">Modelo</a>
+								</li>
+								<li>
+									<a href="automovel">Automovel</a>
+								</li>
+							</ul>
+						</div> 
+				</div> 
+                            </div>
+                    </div>
+                </p:layoutUnit>
+                <p:layoutUnit position="west" size="175" collapsible="true" style="border-color: white;">
+                    <p:menu>
+                        <p:submenu label="Menu">
+                            <p:menuitem value="Home" url="/faces/index.xhtml"/>
+                            <p:menuitem value="Marcas" url="/faces/marca.xhtml" />
+                            <p:menuitem value="Modelo" url="/faces/modelo.xhtml" />
+                            <p:menuitem value="Automóvel" url="/faces/automovel.xhtml" />
+                        </p:submenu>
+                    </p:menu>
+                </p:layoutUnit>
+                
+                <p:layoutUnit position="center" style="border-color: white; font-family: Segoe UI Light">
+                    <p:tab title="A biga">
+                        <h:graphicImage value="/img/biga.jpeg"/><br></br>
+                        <h:outputText style="font-size: smaller; text-align: center;" value="Imagem meramente ilustrativa"/>
+                    </p:tab>
+                             
+                </p:layoutUnit>
+            </p:layout>
+        </h:body>
+    </f:view>
+</html>

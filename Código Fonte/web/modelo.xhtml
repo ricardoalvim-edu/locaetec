@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>Locação de Bigas</title>
+                <link href="bootstrap.min.css" rel="stylesheet"></link>
+            </f:facet>
+        </h:head>
+
+        <h:body>
+
+            <p:layout fullPage="true" style="border-color: white; font-family: Segoe UI Light">
+
+                <p:layoutUnit position="north" size="50" collapsible="true" style="font-size: xx-large; font-family: Segoe UI Light; text-align: center; border-color: white;" >
+                    Sistema de Locação de Bigas da Etec Pedro D'Arcádia Neto
+                </p:layoutUnit>
+
+                <p:layoutUnit position="west" size="175" collapsible="true" style="border-color: white;">
+                    <p:menu>
+                        <p:submenu label="Menu">
+                            <p:menuitem value="Home" url="/faces/index.xhtml"/>
+                            <p:menuitem value="Marcas" url="/faces/marca.xhtml" />
+                            <p:menuitem value="Modelo" url="/faces/modelo.xhtml" />
+                            <p:menuitem value="Automóvel" url="/faces/automovel.xhtml" />
+                        </p:submenu>
+                    </p:menu>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="center" style="border-color: white; font-family: Segoe UI Light">
+                    <p:accordionPanel>
+                        <p:tab title="Relação de Modelos disponíveis">
+                            <p:dataTable id="dataTable" var="modelo" value="#{modeloBean.modelos}"
+                                         paginator="true" rows="10"
+                                         rowsPerPageTemplate="5,10,15">
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Código" />
+                                    </f:facet>
+                                    <h:outputText value="#{modelo.id}" />
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Descrição" />
+                                    </f:facet>
+                                    <h:outputText value="#{modelo.descricao}" />
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Marca" />
+                                    </f:facet>
+                                    <h:outputText value="#{modelo.marcaId.nome}" />
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Potência" />
+                                    </f:facet>
+                                    <h:outputText value="#{modelo.potencia}" />
+                                </p:column>
+                            </p:dataTable>
+                        </p:tab>
+
+                        <p:tab title="Novo Modelo de Biga">
+                            <h:panelGrid columns="2">
+                                <h:form>
+                                    <table>
+                                        <tr>
+                                            <td><h:outputText value="Marca: "/></td>
+                                            <td><p:inputText value="#{modeloBean.modelo.marcaId}"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><h:outputLabel value="Descrição do modelo: " for="dm"/></td>
+                                        <td><p:autoComplete id="dm" dropdown="true" value=""
+                                                            completeMethod="#{modeloBean.complete()}" />  </td>
+                                        </tr>
+                                        <tr>
+                                            <td><h:outputText value="Potência do modelo: "/></td>
+                                            <td><p:inputText value=""/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><p:commandButton value="Salvar" action="#{modeloBean.salvar()}"/></td>
+                                        </tr>
+                                    </table>
+                                </h:form>
+                            </h:panelGrid>
+                        </p:tab>
+                    </p:accordionPanel>
+                </p:layoutUnit>
+
+            </p:layout>
+        </h:body>
+    </f:view>
+</html>
